@@ -44,20 +44,34 @@ Sommare i due numeri
 Controllare se la somma è pari o dispari
 Dichiarare il vincitore*/
 
-let scelta = prompt("Scegli: pari o dispari").toLowerCase();
-let numeroScelto = parseInt(prompt("Scegli un numero da 1 a 5"));
-let numeroComputer = Math.floor(Math.random() * 5) + 1;
-let somma = numeroScelto + numeroComputer;
 
-if (scelta === "pari" || scelta === "dispari") {
-    console.log(`Hai scelto: ${scelta}`);
-} else {
-    console.log("Scelta non valida. Devi scrivere 'pari' o 'dispari'.");
-}
+function pariDispari(){
+    let scelta = prompt("Scegli: Pari o Dispari").toLowerCase();
+    console.log(scelta);
 
-if(somma % 2 === 0 && scelta === "pari" || somma % 2 !== 0 && scelta === "dispari"){
+    if(scelta !== "pari" && scelta !== "dispari"){
+        console.log("Scelta non valida, devi scegliere pari o dispari");
+        return;
+    }
+
+    let numeroScelto = parseInt(prompt("Scegli un numero da 1 a 5"));
+    console.log(`Hai scelto: ${numeroScelto}`);
+
+    if(isNaN(numeroScelto) || numeroScelto < 1 || numeroScelto > 5){
+        console.log(`${numeroScelto} non è un numero valido devi scegliere un numero da 1 a 5`);
+        return;
+    }
+
+    let numeroComputer = Math.floor(Math.random() * 5) + 1;
+    console.log(`Il computer ha scelto: ${numeroComputer}`);
+    let somma = numeroScelto + numeroComputer;
+
+    if(somma % 2 === 0 && scelta === "pari" || somma % 2 !== 0 && scelta === "dispari"){
     console.log("Complimenti hai vinto")
-} else{
+    } else{
     console.log("Questa volta ha vinto il Computer");
+    }
+
 }
 
+pariDispari();
