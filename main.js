@@ -35,3 +35,29 @@ function isPali(parola){
 }
 
 isPali(parola);
+
+/*Pari e Dispari:
+Far scegliere all'utente Pari o Dispari
+Fargli scegliere un numero
+Far scegliere un numero al computer
+Sommare i due numeri
+Controllare se la somma è pari o dispari
+Dichiarare il vincitore*/
+
+let scelta = prompt("Scegli: pari o dispari").toLowerCase();
+let numeroScelto = parseInt(prompt("Scegli un numero da 1 a 5"));
+let numeroComputer = Math.floor(Math.random() * 5) + 1;
+let somma = numeroScelto + numeroComputer;
+
+if (scelta === "pari" || scelta === "dispari") {
+    console.log(`Hai scelto: ${scelta}`);
+} else {
+    console.log("Scelta non valida. Devi scrivere 'pari' o 'dispari'.");
+}
+
+if(somma % 2 === 0 && scelta === "pari" || somma % 2 !== 0 && scelta === "dispari"){
+    console.log("Complimenti hai vinto")
+} else{
+    console.log("Questa volta ha vinto il Computer");
+}
+
